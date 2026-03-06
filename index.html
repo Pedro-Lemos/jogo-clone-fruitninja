@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Stack Slicer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- Main Game Canvas -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- HUD: Always visible during gameplay -->
+        <div id="hud" class="hidden">
+            <div class="hud-item score-container">Pontos: <span id="score-display">0</span></div>
+            <div class="hud-item time-container">Tempo: <span id="time-display" class="neon-text">60</span>s</div>
+        </div>
+
+        <!-- HUD das Stacks Cortadas -->
+        <div id="stats-hud" class="hidden">
+            <h3 class="neon-text" style="font-size: 1rem; margin-bottom: 10px;">Stacks Cortadas</h3>
+            <ul id="stats-list"></ul>
+        </div>
+
+        <!-- Floating Text Container -->
+        <div id="fx-container"></div>
+
+        <!-- Start Screen Overlay -->
+        <div id="start-screen" class="overlay">
+            <h1 class="title neon-text">Stack Slicer</h1>
+            <p>Corte as linguagens de programação para provar suas habilidades!</p>
+            <p class="warning">⚠️ <span class="danger-text">NÃO CORTE O PYTHON!</span> ⚠️</p>
+            <p class="instructions">Deslize o mouse ou dedo pela tela para cortar.<br>Você tem 60 segundos.</p>
+            <button id="start-btn" class="btn primary-btn">Começar Jogo</button>
+            <div class="highscore-display">Recorde: <span id="start-highscore">0</span></div>
+        </div>
+
+        <!-- Game Over Screen Overlay -->
+        <div id="game-over-screen" class="overlay hidden">
+            <h1 id="game-over-title" class="title danger-text">Fim de Jogo</h1>
+            <p id="game-over-reason">Você cortou o Python!</p>
+            <div class="score-board">
+                <p>Pontuação Final: <span id="final-score" class="neon-text">0</span></p>
+                <p>Melhor Pontuação: <span id="game-over-highscore">0</span></p>
+            </div>
+            <button id="restart-btn" class="btn primary-btn">Jogar Novamente</button>
+        </div>
+
+        <!-- Pause Screen Overlay -->
+        <div id="pause-screen" class="overlay hidden">
+            <h1 class="title neon-text">Pausado</h1>
+            <p>Pressione ESC ou clique abaixo para continuar.</p>
+            <button id="resume-btn" class="btn primary-btn">Continuar</button>
+        </div>
+    </div>
+
+    <!-- Load Game Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
